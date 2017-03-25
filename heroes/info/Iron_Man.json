@@ -1,0 +1,8 @@
+{
+	"name":"Iron Man",
+	"alterEgo":"Roman Kishinevsky",
+	"jurisdiction": "Russia and elsewhere",
+	"superpowers":["Iron Armor", "Repulsor rays", "Missile launchers", "laser"],
+	"style":{"backgroundColor":"#beba46","color":"#771414"},
+	"picture": "Iron_man.png"
+}

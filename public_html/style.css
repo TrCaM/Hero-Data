@@ -1,0 +1,139 @@
+/*Name: Tri Cao
+Student number: 100971065
+Assignment1:*/
+
+body{
+  background-image: url('Hero.jpg');
+  background-size: cover;
+}
+
+/*Font taken from http://www.dafont.com/superhero.font*/
+@font-face {
+  font-family: 'heroFont';
+  src: url('hero_font.ttf');
+}
+
+.head{
+  background-color: grey;
+  color: #B22222;
+  text-align: center;
+  font-size: 60px;
+  border-style: solid;
+  border-width: 20px 15px 7px 22px;
+  outline: 10px solid grey;
+  font-family: "alex-brush";
+}
+
+.error{
+  position: fixed;
+  background-color: grey;
+  color: #B22222;
+  text-align: center;
+  font-family: 'heroFont';
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  font-size: 150px;
+  border-style: solid;
+  border-width: 20px 15px 7px 22px;
+  outline: 10px solid grey;
+}
+
+#select {
+  width: 20%;
+  height: 500px;
+  float: left;
+}
+#information {
+  text-align: left;
+  font-size: 20px;
+  padding: 20px 20px 10px 20px;
+  width: 30%;
+  height: 500px;
+  float: right;
+}
+
+
+
+ label{
+    width: 30%;
+    float: left;
+    padding-left: 20px;
+}
+
+
+input, textarea{
+  color: inherit;
+  font-size: 80%;
+  font-weight: bold;
+  width: 50%;
+  margin-left: 15px;
+  margin-bottom: 30px;
+  padding-left: 5px;
+  background-color: #f1f1f1;
+  transition-duration: 0.4s;
+  border: 1px solid #B22222;
+}
+
+textarea{
+  width: 90%;
+  margin-top: 20px;
+  padding-top: 10px;
+  text-align: right;
+  padding-right: 20px;
+}
+#select select{
+  color: red;
+  font-size: 35%;
+  font-weight: bold;
+  width: 85%;
+  margin-top: 30px;
+  margin-left: 15px;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  transition-duration: 0.4s;
+  border: 10px solid #B22222;
+}
+#select select:focus{
+  border-color: purple;
+}
+.button{
+  font-family: 'heroFont';
+  font-size: 90%;
+  height: 100px;
+  width: 200px;
+  color: grey;
+  margin-top: 200px;
+  background-color: #B22222;
+  transition-duration: 0.4s;
+  border: 10px solid #B22222;
+  background-color: grey;
+  color: #B22222;
+}
+
+.button:hover{
+  color: grey;
+  background-color: #B22222;
+  box-shadow: 0 8px 26px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.button:active{
+  color: grey;
+  background-color: #B22222;
+  box-shadow: 0 28px 36px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: translateY(5px);
+}
+
+#potrait {
+  margin-left: 25%;
+  margin-right: 40%;
+  height: 600px;
+  background-color: grey;
+  border: 10px solid black;
+}
+
+#potrait img{
+  height: inherit;
+  width: inherit;
+}

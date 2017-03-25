@@ -1,0 +1,94 @@
+<!-- Name: Tri Cao
+Student number: 100971065
+Assignment1: -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Hero database</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css"  href="style.css">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <script>
+    // Populate the options for the select element
+    function populateOption(){
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', '/allHeroes', false);
+      xhr.send();
+      var data = JSON.parse(xhr.responseText);
+      var optionBar = document.getElementById('heroSelect');
+
+      for (i in data){
+        var name = data[i].split('.')[0];
+        var realName = name.replace(/_/g, ' ');
+        optionBar.innerHTML += "<option value="+name+">"+realName +"</option>";
+      }
+    }
+    // View the information of selected hero after click View button
+    function viewInfo(){
+      var heroSelect = document.getElementById('heroSelect');
+      var selected = heroSelect.options[heroSelect.selectedIndex].value;
+      var path = "/hero?name=" + selected;
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', path, false);
+      xhr.send();
+      var data = JSON.parse(xhr.responseText);
+      console.log(data);
+      console.log(data.name.toString());
+      var div = document.getElementById('information');
+      var form = document.getElementById('information').firstElementChild;
+      displayPicture(data.picture);
+      div.style.color = data.style.color;
+      div.style.backgroundColor =  data.style.backgroundColor;
+      div.style.borderColor = data.style.borderColor;
+      form.innerHTML  = "<label for='name'>Name:</label>" ;
+      form.innerHTML += "<input name='name' value='"+data.name+"' disabled><br />";
+      form.innerHTML += "<label for='alterEgo'>Alter Ego:</label>" ;
+      form.innerHTML += "<input name='alterEgo' value='"+data.alterEgo+"' disabled><br />";
+      form.innerHTML += "<label for='jurisdiction'>Jurisdiction:</label>" ;
+      form.innerHTML += "<input name='jurisdiction' value='"+data.jurisdiction+"' disabled><br />";
+      form.innerHTML += "<label for='superpowers'>Superpowers</label><br>" ;
+      form.innerHTML += "<textarea name='superpowers' rows='15' cols='40' disabled>"+data.superpowers.toString().replace(/,/g,'\n\n')+" </textarea><br />";
+      return false;
+    }
+    function displayPicture(path){
+      var frame = document.getElementById('potrait');
+      // frame.innerHTML = "<img src='../heroes/images/"+path+"'/>";
+      frame.innerHTML = "<img src='../images/"+path+"'/>";
+    }
+  </script>
+</head>
+<body>
+
+  <h1 class="head">COMP2406 A1 Hero Database!</h1>
+  <br />
+
+  <div class="head" id="information">
+    <form>
+
+    </form>
+  </div>
+
+  <div class="head" id='select'>
+    <form onsubmit="return viewInfo()">
+      <label for="heroSelect">Hero:</label>
+      <br />
+      <select name="name" id="heroSelect">
+        <script>populateOption();</script>
+      </select>
+      <br />
+      <input type="submit" class="button" value="view">
+    </form>
+  </div>
+
+  <div id="potrait"></div>
+  <script>
+    document.querySelector('body').addEventListener('keypress', function (e) {
+      var key = e.which || e.keyCode;
+      if (key === 13) { // 13 is enter
+        viewInfo();
+      }
+    });
+  </script>
+</body>
+</html>
