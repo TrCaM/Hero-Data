@@ -17,9 +17,9 @@ run the server: >node server.js
 Run website:
 ***********************************
 
-Server will run on port 2406:
+Server will run on port 1996:
 
-Open browser: access local host via port 2406:
+Open browser: access local host via port 1996:
   + http://127.0.0.1:2406/
   + http://localhost:2406/
 
